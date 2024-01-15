@@ -10,6 +10,16 @@ router.get("/", (req, res) => {
     return res.render("index", { req, helmet, page: "home" });
 });
 
+router.get("/faq", (req, res) => {
+    let helmet = {
+        title: "FAQ │ Smart Miners",
+        description: "Get training from experts, courses, and guidance to master the mining industry in Indonesia.",
+        path: "/faq",
+        image: null,
+    }
+    return res.render("index", { req, helmet, page: "faq" });
+});
+
 router.get("/courses", (req, res) => {
     let helmet = {
         title: "Courses │ Smart Miners",
@@ -45,7 +55,6 @@ router.get("/profile", (req, res) => {
     return res.render("index", { req, helmet, page: "profile" });
 });
 
-router.use("/login", require("./login"));
 router.get("/register", (req, res) => {
     let helmet = {
         title: "Sign Up │ Smart Miners",
@@ -55,5 +64,10 @@ router.get("/register", (req, res) => {
     }
     return res.render("index", { req, helmet, page: "register" });
 });
+
+
+router.use("/profile", require("./profile"));
+router.use("/admin", require("./admin"));
+router.use("/login", require("./login"));
 
 module.exports = router;

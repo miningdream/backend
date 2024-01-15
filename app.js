@@ -22,7 +22,7 @@ const store = new Store({
 
 sequelize.sync().catch(console.log);
 app.use(cors({
-    origin: process.env.DOMAIN || "http://localhost:3000",
+    origin: process.env.DOMAIN || ["http://localhost:3000", "http://localhost:3002"],
     credentials: true
 }));
 
@@ -54,6 +54,9 @@ app.use((req, res, next) => {
             message: "Cannot find page or data!"
         }
     }
+    req.admins = [
+        "fd1cbb23-d126-42d0-b7c6-840a5722c5d9"
+    ];
     next();
 });
 

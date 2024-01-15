@@ -1,4 +1,4 @@
-const sequelize = require("../sequelize");
+const sequelize = require("./sequelize");
 const { Model, DataTypes } = require("sequelize");
 
 class Schema extends Model {}
@@ -33,7 +33,7 @@ Schema.init({
     },
     price: {
         type: DataTypes.BIGINT(),
-        defaultValue: true
+        defaultValue: 0
     },
     is_certified: {
         type: DataTypes.BOOLEAN(),
@@ -41,7 +41,7 @@ Schema.init({
     },
     rating: {
         type: DataTypes.TINYINT(),
-        defaultValue: 0
+        defaultValue: 1
     },
     level: {
         type: DataTypes.TINYINT(), // 0 === beginner || 1 === intermediate || 2 === advanced
@@ -50,6 +50,14 @@ Schema.init({
     keywords: {
         type: DataTypes.TEXT("long"),
         defaultValue: ""
+    },
+    start_timestamp: {
+        type: DataTypes.BIGINT(),
+        defaultValue: Date.now()
+    },
+    end_timestamp: {
+        type: DataTypes.BIGINT(),
+        defaultValue: null
     }
 }, {
     modelName: "courses",

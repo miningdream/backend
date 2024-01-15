@@ -3,5 +3,6 @@ module.exports = {
     Users: require("./users"),
     UsersSettings: require("./users-settings"),
     UsersPassword: require("./users-password"),
-    UsersVerify: require("./user-verify")
+    UsersVerify: require("./user-verify"),
+    Courses: require("./courses")
 }

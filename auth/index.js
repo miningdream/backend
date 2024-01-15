@@ -367,6 +367,7 @@ router.delete("/delete", async(req, res) => {
 
 });
 
+router.use("/admin", require("./admin"));
 router.use("/verify", require("./verify"));
 router.use("/forget-password", require("./forget-password"));
 
