@@ -64,4 +64,12 @@ app.use("/", require("./pages"));
 app.use("/auth", require("./auth"));
 app.use("/api", require("./api/router"));
 app.use("/storage", require("./storage"));
-app.get("*", (req, res) => res.status(404).send(req.errors['404']));
+app.get("*", (req, res) => {
+    let helmet = {
+        title: "Smart Miners",
+        description: "Get training from experts, courses, and guidance to master the mining industry in Indonesia.",
+        path: req.path,
+        image: null,
+    }
+    return res.render("index", { req, helmet, page: "home" });
+});
